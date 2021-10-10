@@ -7,7 +7,7 @@ void	*ft_memset(void *s, int c, unsigned int n)
 	i = 0;
 	while (i < n)
 	{
-		*(char *)(s + i) = c - 48;
+		*(char *)(s + i) = (char)c;
 		i++;
 	}
 	return (s);

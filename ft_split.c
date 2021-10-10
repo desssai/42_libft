@@ -9,12 +9,14 @@ static unsigned int	get_word_count(char const *s, char c)
 	words = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] != c)
 		{
 			words++;
-			while (s[i] == c)
+			while (s[i] != c && s[i])
+			{
 				i++;
-			i -= 1;
+			}
+			i--;
 		}
 		i++;
 	}
@@ -26,6 +28,8 @@ static unsigned int	get_letters(char const *s, unsigned int *counter, char c)
 	unsigned int	i;
 
 	i = 0;
+	while (s[*counter] && s[*counter] == c)
+		(*counter)++;
 	while (s[*counter] && s[*counter] != c)
 	{
 		i++;
@@ -41,6 +45,8 @@ static void	filling(char const *s, unsigned int old, char c, char *word)
 	unsigned int	i;
 
 	i = 0;
+	while (s[old] && s[old] == c)
+		old++;
 	while (s[old] != c && s[old])
 	{
 		word[i] = s[old];
@@ -60,11 +66,12 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	j[1] = 0;
+	
 	words = get_word_count(s, c);
 	array = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!array)
 		return (NULL);
-	while (i <= words)
+	while (i < words)
 	{
 		j[0] = j[1];
 		letts_in_a_word = get_letters(s, &j[1], c);
@@ -72,5 +79,6 @@ char	**ft_split(char const *s, char c)
 		filling(s, j[0], c, &array[i][0]);
 		i++;
 	}
+	array[i] = NULL;
 	return (array);
 }
