@@ -1,20 +1,15 @@
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, unsigned int len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*str;
-	unsigned int	i;
-	unsigned int	size;
+	char	*str;
+	size_t	i;
 
-	size = 0;
 	i = 0;
-	while (s[start + i] && i <= len)
-		size++;
-	str = (char *)malloc((i + 1) * sizeof(char));
+	str = (char *)malloc((ft_strlen(&s[start])) * sizeof(char));
 	if (str == 0)
-		return (0);
-	i = 0;
-	while (s[start + i] && i <= len)
+		return (NULL);
+	while (s[start + i] && i < len)
 	{
 		str[i] = s[start + i];
 		i++;
