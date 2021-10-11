@@ -41,8 +41,8 @@ static size_t	get_last_occurance(char const *s, char const *set)
 				c = 1;
 			j++;
 		}
-			if (!c)
-				return (i);
+		if (!c)
+			return (i);
 		i--;
 	}
 	return (0);

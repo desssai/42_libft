@@ -2,23 +2,23 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	dst_end;
-	size_t	src_end;
+	size_t	dst_size;
+	size_t	src_size;
 	size_t	i;
 
 	i = 0;
-	dst_end = ft_strlen(dst);
-	src_end = ft_strlen(src);
-	if (dst_end + src_end > size)
-		return (size);
-	else
+	dst_size = ft_strlen(dst);
+	src_size = ft_strlen(src);
+	if (dst_size < size)
 	{
-		while (i < size - dst_end && src[i])
+		while (i < size - dst_size - 1 && src[i])
 		{
-			dst[dst_end + i] = src[i];
+			dst[dst_size + i] = src[i];
 			i++;
 		}
-		dst[dst_end + i] = 0;
-		return (dst_end + i);
+		dst[dst_size + i] = 0;
+		return (dst_size + src_size);
 	}
+	else
+		return (size + src_size);
 }
