@@ -6,13 +6,11 @@ char	*ft_strnstr(const char *big, const char *small, size_t n)
 	size_t	j;
 	size_t	s;
 
-	s = 0;
-	while (small[s])
-		s++;
+	s = ft_strlen(small);
 	if (s == 0)
 		return ((char *)big);
-	i = 0;
-	while (i < n && big[i])
+	i = -1;
+	while (++i < n && big[i])
 	{
 		j = 0;
 		if (big[i] == small[j])
@@ -22,7 +20,6 @@ char	*ft_strnstr(const char *big, const char *small, size_t n)
 		}
 		if (s == j)
 			return ((char *)(&big[i]));
-		i++;
 	}
 	return (0);
 }

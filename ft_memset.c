@@ -1,14 +1,11 @@
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, unsigned int n)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned int	i;
+	size_t	i;
 
-	i = 0;
-	while (i < n)
-	{
+	i = -1;
+	while (++i < n)
 		*(char *)(s + i) = (char)c;
-		i++;
-	}
 	return (s);
 }

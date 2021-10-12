@@ -6,14 +6,13 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	unsigned char	p2;
 	size_t			i;
 
-	i = 0;
-	while (i < n && (s1[i] || s2[i]))
+	i = -1;
+	while (++i < n && (s1[i] || s2[i]))
 	{
 		p1 = s1[i];
 		p2 = s2[i];
 		if ((int)p1 - (int)p2)
 			return ((int)p1 - (int)p2);
-		i++;
 	}
 	return (0);
 }
