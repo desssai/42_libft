@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ncarob <ncarob@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/13 18:36:13 by ncarob            #+#    #+#             */
+/*   Updated: 2021/10/13 19:46:45 by ncarob           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static size_t	get_first_occurance(char const *s, char const *set)
@@ -48,9 +60,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	last;
 
 	i = -1;
+	if (!s1)
+		return (NULL);
 	first = get_first_occurance(s1, set);
 	last = get_last_occurance(s1, set);
-	str = (char *)malloc((last - first + 1) * sizeof(char));
+	str = (char *)malloc((last - first + 2) * sizeof(char));
 	if (str == NULL)
 		return (0);
 	while (++i < last - first + 1)
