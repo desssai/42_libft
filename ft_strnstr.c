@@ -6,7 +6,7 @@
 /*   By: ncarob <ncarob@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 18:36:07 by ncarob            #+#    #+#             */
-/*   Updated: 2021/10/13 19:45:02 by ncarob           ###   ########.fr       */
+/*   Updated: 2021/10/14 17:14:49 by ncarob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strnstr(const char *big, const char *small, size_t n)
 	size_t	i;
 	size_t	j;
 
-	if (!big || big[0] == 0)
+	if (!big)
 		return (NULL);
 	if (!small || small[0] == 0)
 		return ((char *)big);

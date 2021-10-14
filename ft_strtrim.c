@@ -6,7 +6,7 @@
 /*   By: ncarob <ncarob@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 18:36:13 by ncarob            #+#    #+#             */
-/*   Updated: 2021/10/13 19:46:45 by ncarob           ###   ########.fr       */
+/*   Updated: 2021/10/14 18:26:47 by ncarob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@ static size_t	get_last_occurance(char const *s, char const *set)
 	short	c;
 	size_t	i;
 	size_t	j;
+	size_t	len;
 
 	i = ft_strlen(s);
-	while (--i >= 0)
+	len = i;
+	while (--i > 0)
 	{
 		j = -1;
 		c = 0;
@@ -62,12 +64,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = -1;
 	if (!s1)
 		return (NULL);
+	if (!set)
+		return ((char *)s1);
 	first = get_first_occurance(s1, set);
 	last = get_last_occurance(s1, set);
 	str = (char *)malloc((last - first + 2) * sizeof(char));
 	if (str == NULL)
 		return (0);
-	while (++i < last - first + 1)
+	while (++i < last - first + 1 && last)
 		str[i] = s1[first + i];
 	str[i] = 0;
 	return (str);
