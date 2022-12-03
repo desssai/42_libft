@@ -9,9 +9,9 @@ i.e. several data types, data structures, working with c-strings, allocation and
 ## Usage
 
 1. Clone the repository in your project's directory.
-2. Include `libft/libft.h` in your header.
+2. Include `ft_libft/libft.h` in your header.
 3. Either compile your library or add a dependency in your Makefile.
-4. Compile your code with `-I./libft/libft.a`
+4. Compile your code with `-I./ft_libft/libft.a`
 
 The library can be compiled either mannually or using a Makefile.\
 The Makefile rules are as follows:
