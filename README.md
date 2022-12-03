@@ -8,8 +8,8 @@ i.e. several data types, data structures, working with c-strings, allocation and
 
 ## Usage
 
-1. Clone the repository in your project directory.
-2. Include `libft.h` in your header.
+1. Clone the repository in your project's directory.
+2. Include `libft/libft.h` in your header.
 3. Either compile your library or add a dependency in your Makefile.
 4. Compile your code with `-I./libft/libft.a`
 
